@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mongouser:mongouser@ds133964.mlab.com:33964/learnmongo');
+// my mongo_url : mongodb://mongouser:mongouser@ds133964.mlab.com:33964/learnmongo
+mongoose.connect('mongo_url');
 
 var personSchema = mongoose.Schema({
 	name : String,
