@@ -5,7 +5,10 @@ var mongoose = require('mongoose');
 mongoose.connect(mongo_url);
 
 // Schema defines the structure of your data or How your data is going to look like
-var personSchema = mongoose.Schema({
+// Think of 'mongoose.Schema' like a function constructor which creates the structure of document
+var Schema = mongoose.Schema;
+
+var personSchema = new Schema({
 	name : String,
 	age : Number,
 	nickname : String
@@ -20,9 +23,9 @@ personSchema.methods.tellName = function () {
 	console.log(greeting);
 }
 
-// Think of model like a function constructor for creating objects.
-// Important : first argument in mongoose.model automatically creates a collection with a plral name
-// example: Person model will automatically have 'People' collection in mongoose
+// Think of model like a function constructor for creating objects/documents which is created suing schema.
+// It automatically creates a collecton depending on the name you use for model.
+// example: 'Person' model will automatically have 'People' collection in mongoose
 var Person = mongoose.model('Person', personSchema);
 
 //----------------------------------------------------------------------
