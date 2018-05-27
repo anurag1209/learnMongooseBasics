@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 // my mongo_url : mongodb://mongouser:mongouser@ds133964.mlab.com:33964/learnmongo
 mongoose.connect('mongo_url');
 
+// Defines the structure of your data or How your data is going to look like
 var personSchema = mongoose.Schema({
 	name : String,
 	age : Number,
@@ -18,6 +19,9 @@ personSchema.methods.tellName = function () {
 	console.log(greeting);
 }
 
+// Think of this like a function constructor for creating objects
+// Important : first argument in mongoose.model automatically creates a collection with a plral name
+// example: Person model will automatically have 'People' collection in mongoose
 var Person = mongoose.model('Person', personSchema);
 
 //----------------------------------------------------------------------
